@@ -1,0 +1,56 @@
+version: '2'
+
+services:
+  elasticsearch:
+    build: elasticsearch/
+    image: rwesolowski/elasticsearch:version1.0
+    #entrypoint: /bin/bash
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+    networks:
+      - docker_elk
+  kibana:
+    build: kibana/
+    image: rwesolowski/kibana:version1.0
+    volumes:
+      - ./kibana/config/:/etc/kibana/
+    ports:
+      - "5601:5601"
+    networks:
+      - docker_elk
+    depends_on:
+      - elasticsearch
+  nifi:
+    build: nifi/
+    image: rwesolowski/nifi:version1.0
+    ports:      
+      - "8080:8080"
+      - "8081:8081"
+      - "8443:8443"
+    networks:
+      - docker_elk
+    volumes:
+      - ./nifi/logs/:/opt/nifi/logs
+      - ./nifi/flowfile_repository/:/opt/nifi/flowfile_repository
+      - ./nifi/database_repository/:/opt/nifi/database_repository
+      - ./nifi/content_repository/:/opt/nifi/content_repository
+      - ./nifi/provenance_repository/:/opt/nifi/provenance_repository
+  jupyter:
+    build: jupyter
+    image: rwesolowski/jupyter:version1.0
+    ports:
+      - "4040:4040"
+      - "8888:8888"
+      - "8000:8000"
+    volumes:
+      - ./jupyter/:/workspace
+      - ./jupyter/:/etc/ssl/notebook
+    networks:
+      - docker_elk
+
+networks:
+  docker_elk:
+    driver: bridge

@@ -1,0 +1,1 @@
+FROM xemuliam/nifi:latest
