@@ -35,7 +35,7 @@ services:
       - docker_elk
     volumes:
       - ./nifi/certs:/opt/certs
-      - /etc/localtime:/etc/localtime:ro
+      - /etc/localtime:/etc/localtime:ro ubuntu date
       - ./nifi/logs/:/opt/nifi/logs
       - ./nifi/flowfile_repository/:/opt/nifi/flowfile_repository
       - ./nifi/database_repository/:/opt/nifi/database_repository
