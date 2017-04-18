@@ -1,1 +1,2 @@
-FROM mkobit/nifi:latest
+FROM xemuliam/nifi:latest
+
