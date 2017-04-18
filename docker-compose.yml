@@ -42,6 +42,7 @@ services:
       - ./nifi/database_repository/:/opt/nifi/database_repository
       - ./nifi/content_repository/:/opt/nifi/content_repository
       - ./nifi/provenance_repository/:/opt/nifi/provenance_repository
+      - ./nifi/data:/opt/nifi/data
   jupyter:
     build: jupyter
     image: rwesolowski/jupyter:version1.0
