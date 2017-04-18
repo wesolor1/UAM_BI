@@ -1,1 +1,1 @@
-FROM mkobit/nifi:latest
+FROM rwesolowski/nifi1.1
