@@ -34,6 +34,7 @@ services:
     networks:
       - docker_elk
     volumes:
+      - ./nifi/certs:/opt/certs
       - ./nifi/logs/:/opt/nifi/logs
       - ./nifi/flowfile_repository/:/opt/nifi/flowfile_repository
       - ./nifi/database_repository/:/opt/nifi/database_repository
