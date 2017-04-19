@@ -64,7 +64,7 @@ services:
     volumes:
       - ./zeppelin/:/opt/zeppelin/logs
       - ./zeppelin/:/opt/zeppelin/notebook
-   networks:
+    networks:
       - docker_elk
 networks:
   docker_elk:
