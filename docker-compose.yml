@@ -55,13 +55,13 @@ services:
       - ./jupyter/:/etc/ssl/notebook
     networks:
       - docker_elk
-   zeppelin:
+  zeppelin:
     build: zeppelin
     image: xemuliam/zeppelin
    ports:
       - "8080:8080"
       - "8443:8443"
-   volumes:
+    volumes:
       - ./zeppelin/:/opt/zeppelin/logs
       - ./zeppelin/:/opt/zeppelin/notebook
    networks:
