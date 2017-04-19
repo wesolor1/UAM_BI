@@ -61,6 +61,7 @@ services:
     ports:
       - "8080:8080"
       - "8444:8444"
+      - "5432:5432"
     volumes:
       - ./zeppelin/:/opt/zeppelin/logs
       - ./zeppelin/:/opt/zeppelin/notebook
