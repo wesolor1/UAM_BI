@@ -60,7 +60,7 @@ services:
     image: xemuliam/zeppelin
     ports:
       - "8080:8080"
-      - "8443:8443"
+      - "8444:8444"
     volumes:
       - ./zeppelin/:/opt/zeppelin/logs
       - ./zeppelin/:/opt/zeppelin/notebook
