@@ -58,7 +58,7 @@ services:
   zeppelin:
     build: zeppelin
     image: xemuliam/zeppelin
-   ports:
+    ports:
       - "8080:8080"
       - "8443:8443"
     volumes:
